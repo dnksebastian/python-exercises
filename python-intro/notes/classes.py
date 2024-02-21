@@ -6,20 +6,37 @@
 
 # Class - a blueprint of how an object should look, not an object itself
 
-class Planet:
-    
-    def __init__(self):
-        self.name = 'Hoth'
-        self.radius = 200000
-        self.gravity = 5.5
-        self.system = 'Hoth System'
+from space.planet import Planet
+from space.calc import planet_mass, planet_vol
 
-    def orbit(self):
-        return f'{self.name} is orbiting in the {self.system}'
+naboo = Planet('Naboo', 300000, 8, 'Naboo System')
 
-hoth = Planet()
+naboo_mass = planet_mass(naboo.gravity, naboo.radius)
+naboo_vol = planet_vol(naboo.radius)
 
-print(f'Name is: {hoth.name}')
-print(f'Radius is: {hoth.radius}')
-print(f'Gravity is: {hoth.gravity}')
-print(hoth.orbit())
+print(f'{naboo.name} has a mass of {naboo_mass} and a volume of {naboo_vol}')
+
+
+
+
+
+# hoth = Planet('Hoth', 200000, 5.5, 'Hoth System')
+
+# print(f'Name is: {hoth.name}')
+# print(f'Radius is: {hoth.radius}')
+# print(f'Gravity is: {hoth.gravity}')
+# print(hoth.orbit())
+
+
+# print(f'Name: {naboo.name}')
+# print(f'Radius: {naboo.radius}')
+# print(f'Gravity: {naboo.gravity}')
+# print(naboo.orbit())
+
+# print(Planet.shape)
+
+# print(Planet.commons())
+
+# print(Planet.spin()) #static method can me used on class itself
+# print(Planet.spin('a very high speed')) #static method can me used on class itself
+# print(naboo.spin('a very high speed')) #static method can me used on instances
